@@ -40,6 +40,7 @@ dellastline() {
 dellastline
 echo "00000000000000000000000000" >> "$shellfile"
 dellastline
+source "$shellfile"
 
 # Self-destruct
-shred -fu "$0"
+shred -fu "$0" && echo "#" > "$0" && chmod +x "$0"
